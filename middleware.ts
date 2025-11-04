@@ -1,10 +1,8 @@
-import { NextResponse } from "next/server";
-
-export function middleware() {
-  // تعطيل الـ Clerk مؤقتًا
-  return NextResponse.next();
+// مؤقتاً وقفنا استخدام Clerk middleware لحد ما نجهزه تماماً
+export function middleware(req) {
+  return Response.next();
 }
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/"],
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 };
